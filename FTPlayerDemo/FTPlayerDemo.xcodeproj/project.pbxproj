@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1596C0B20E0DFAF0023D6DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C0A20E0DFAF0023D6DE /* AppDelegate.m */; };
+		F1596C0E20E0DFAF0023D6DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C0D20E0DFAF0023D6DE /* ViewController.m */; };
+		F1596C1120E0DFAF0023D6DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1596C0F20E0DFAF0023D6DE /* Main.storyboard */; };
+		F1596C1320E0DFB60023D6DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1596C1220E0DFB60023D6DE /* Assets.xcassets */; };
+		F1596C1620E0DFB60023D6DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1596C1420E0DFB60023D6DE /* LaunchScreen.storyboard */; };
+		F1596C1920E0DFB60023D6DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C1820E0DFB60023D6DE /* main.m */; };
+		F1596C2320E0E0640023D6DE /* FTPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1596C2020E0E0640023D6DE /* FTPlayer.bundle */; };
+		F1596C2420E0E0640023D6DE /* FTPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C2220E0E0640023D6DE /* FTPlayer.m */; };
+		F1596C6820E0E0AE0023D6DE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5020E0E0AE0023D6DE /* MASCompositeConstraint.m */; };
+		F1596C6920E0E0AE0023D6DE /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5320E0E0AE0023D6DE /* MASConstraint.m */; };
+		F1596C6A20E0E0AE0023D6DE /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5520E0E0AE0023D6DE /* MASConstraintMaker.m */; };
+		F1596C6B20E0E0AE0023D6DE /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5720E0E0AE0023D6DE /* MASLayoutConstraint.m */; };
+		F1596C6C20E0E0AE0023D6DE /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5B20E0E0AE0023D6DE /* MASViewAttribute.m */; };
+		F1596C6D20E0E0AE0023D6DE /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5D20E0E0AE0023D6DE /* MASViewConstraint.m */; };
+		F1596C6E20E0E0AE0023D6DE /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C5F20E0E0AE0023D6DE /* NSArray+MASAdditions.m */; };
+		F1596C6F20E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C6220E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		F1596C7020E0E0AE0023D6DE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C6420E0E0AE0023D6DE /* View+MASAdditions.m */; };
+		F1596C7120E0E0AE0023D6DE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C6720E0E0AE0023D6DE /* ViewController+MASAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F1596C0620E0DFAF0023D6DE /* FTPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1596C0920E0DFAF0023D6DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F1596C0A20E0DFAF0023D6DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F1596C0C20E0DFAF0023D6DE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F1596C0D20E0DFAF0023D6DE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F1596C1020E0DFAF0023D6DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1596C1220E0DFB60023D6DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1596C1520E0DFB60023D6DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F1596C1720E0DFB60023D6DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1596C1820E0DFB60023D6DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F1596C2020E0E0640023D6DE /* FTPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FTPlayer.bundle; sourceTree = "<group>"; };
+		F1596C2120E0E0640023D6DE /* FTPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPlayer.h; sourceTree = "<group>"; };
+		F1596C2220E0E0640023D6DE /* FTPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPlayer.m; sourceTree = "<group>"; };
+		F1596C4F20E0E0AE0023D6DE /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		F1596C5020E0E0AE0023D6DE /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		F1596C5120E0E0AE0023D6DE /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		F1596C5220E0E0AE0023D6DE /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		F1596C5320E0E0AE0023D6DE /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		F1596C5420E0E0AE0023D6DE /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		F1596C5520E0E0AE0023D6DE /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		F1596C5620E0E0AE0023D6DE /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		F1596C5720E0E0AE0023D6DE /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		F1596C5820E0E0AE0023D6DE /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		F1596C5920E0E0AE0023D6DE /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		F1596C5A20E0E0AE0023D6DE /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		F1596C5B20E0E0AE0023D6DE /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		F1596C5C20E0E0AE0023D6DE /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		F1596C5D20E0E0AE0023D6DE /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		F1596C5E20E0E0AE0023D6DE /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		F1596C5F20E0E0AE0023D6DE /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		F1596C6020E0E0AE0023D6DE /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		F1596C6120E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		F1596C6220E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		F1596C6320E0E0AE0023D6DE /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		F1596C6420E0E0AE0023D6DE /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		F1596C6520E0E0AE0023D6DE /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		F1596C6620E0E0AE0023D6DE /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		F1596C6720E0E0AE0023D6DE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1596C0320E0DFAF0023D6DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1596BFD20E0DFAF0023D6DE = {
+			isa = PBXGroup;
+			children = (
+				F1596C0820E0DFAF0023D6DE /* FTPlayerDemo */,
+				F1596C0720E0DFAF0023D6DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1596C0720E0DFAF0023D6DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1596C0620E0DFAF0023D6DE /* FTPlayerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1596C0820E0DFAF0023D6DE /* FTPlayerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F1596C1F20E0E0640023D6DE /* FTPlayer */,
+				F1596C0920E0DFAF0023D6DE /* AppDelegate.h */,
+				F1596C0A20E0DFAF0023D6DE /* AppDelegate.m */,
+				F1596C0C20E0DFAF0023D6DE /* ViewController.h */,
+				F1596C0D20E0DFAF0023D6DE /* ViewController.m */,
+				F1596C0F20E0DFAF0023D6DE /* Main.storyboard */,
+				F1596C1220E0DFB60023D6DE /* Assets.xcassets */,
+				F1596C1420E0DFB60023D6DE /* LaunchScreen.storyboard */,
+				F1596C1720E0DFB60023D6DE /* Info.plist */,
+				F1596C1820E0DFB60023D6DE /* main.m */,
+			);
+			path = FTPlayerDemo;
+			sourceTree = "<group>";
+		};
+		F1596C1F20E0E0640023D6DE /* FTPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F1596C4E20E0E0AE0023D6DE /* Masonry */,
+				F1596C2020E0E0640023D6DE /* FTPlayer.bundle */,
+				F1596C2120E0E0640023D6DE /* FTPlayer.h */,
+				F1596C2220E0E0640023D6DE /* FTPlayer.m */,
+			);
+			path = FTPlayer;
+			sourceTree = "<group>";
+		};
+		F1596C4E20E0E0AE0023D6DE /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				F1596C4F20E0E0AE0023D6DE /* MASCompositeConstraint.h */,
+				F1596C5020E0E0AE0023D6DE /* MASCompositeConstraint.m */,
+				F1596C5120E0E0AE0023D6DE /* MASConstraint+Private.h */,
+				F1596C5220E0E0AE0023D6DE /* MASConstraint.h */,
+				F1596C5320E0E0AE0023D6DE /* MASConstraint.m */,
+				F1596C5420E0E0AE0023D6DE /* MASConstraintMaker.h */,
+				F1596C5520E0E0AE0023D6DE /* MASConstraintMaker.m */,
+				F1596C5620E0E0AE0023D6DE /* MASLayoutConstraint.h */,
+				F1596C5720E0E0AE0023D6DE /* MASLayoutConstraint.m */,
+				F1596C5820E0E0AE0023D6DE /* Masonry.h */,
+				F1596C5920E0E0AE0023D6DE /* MASUtilities.h */,
+				F1596C5A20E0E0AE0023D6DE /* MASViewAttribute.h */,
+				F1596C5B20E0E0AE0023D6DE /* MASViewAttribute.m */,
+				F1596C5C20E0E0AE0023D6DE /* MASViewConstraint.h */,
+				F1596C5D20E0E0AE0023D6DE /* MASViewConstraint.m */,
+				F1596C5E20E0E0AE0023D6DE /* NSArray+MASAdditions.h */,
+				F1596C5F20E0E0AE0023D6DE /* NSArray+MASAdditions.m */,
+				F1596C6020E0E0AE0023D6DE /* NSArray+MASShorthandAdditions.h */,
+				F1596C6120E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.h */,
+				F1596C6220E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m */,
+				F1596C6320E0E0AE0023D6DE /* View+MASAdditions.h */,
+				F1596C6420E0E0AE0023D6DE /* View+MASAdditions.m */,
+				F1596C6520E0E0AE0023D6DE /* View+MASShorthandAdditions.h */,
+				F1596C6620E0E0AE0023D6DE /* ViewController+MASAdditions.h */,
+				F1596C6720E0E0AE0023D6DE /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1596C0520E0DFAF0023D6DE /* FTPlayerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1596C1C20E0DFB60023D6DE /* Build configuration list for PBXNativeTarget "FTPlayerDemo" */;
+			buildPhases = (
+				F1596C0220E0DFAF0023D6DE /* Sources */,
+				F1596C0320E0DFAF0023D6DE /* Frameworks */,
+				F1596C0420E0DFAF0023D6DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FTPlayerDemo;
+			productName = FTPlayerDemo;
+			productReference = F1596C0620E0DFAF0023D6DE /* FTPlayerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1596BFE20E0DFAF0023D6DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = cft;
+				TargetAttributes = {
+					F1596C0520E0DFAF0023D6DE = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = F1596C0120E0DFAF0023D6DE /* Build configuration list for PBXProject "FTPlayerDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1596BFD20E0DFAF0023D6DE;
+			productRefGroup = F1596C0720E0DFAF0023D6DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1596C0520E0DFAF0023D6DE /* FTPlayerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1596C0420E0DFAF0023D6DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1596C1620E0DFB60023D6DE /* LaunchScreen.storyboard in Resources */,
+				F1596C1320E0DFB60023D6DE /* Assets.xcassets in Resources */,
+				F1596C2320E0E0640023D6DE /* FTPlayer.bundle in Resources */,
+				F1596C1120E0DFAF0023D6DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1596C0220E0DFAF0023D6DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1596C6A20E0E0AE0023D6DE /* MASConstraintMaker.m in Sources */,
+				F1596C2420E0E0640023D6DE /* FTPlayer.m in Sources */,
+				F1596C0E20E0DFAF0023D6DE /* ViewController.m in Sources */,
+				F1596C6920E0E0AE0023D6DE /* MASConstraint.m in Sources */,
+				F1596C7120E0E0AE0023D6DE /* ViewController+MASAdditions.m in Sources */,
+				F1596C6B20E0E0AE0023D6DE /* MASLayoutConstraint.m in Sources */,
+				F1596C6E20E0E0AE0023D6DE /* NSArray+MASAdditions.m in Sources */,
+				F1596C6D20E0E0AE0023D6DE /* MASViewConstraint.m in Sources */,
+				F1596C6C20E0E0AE0023D6DE /* MASViewAttribute.m in Sources */,
+				F1596C7020E0E0AE0023D6DE /* View+MASAdditions.m in Sources */,
+				F1596C1920E0DFB60023D6DE /* main.m in Sources */,
+				F1596C0B20E0DFAF0023D6DE /* AppDelegate.m in Sources */,
+				F1596C6820E0E0AE0023D6DE /* MASCompositeConstraint.m in Sources */,
+				F1596C6F20E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F1596C0F20E0DFAF0023D6DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1596C1020E0DFAF0023D6DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F1596C1420E0DFB60023D6DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1596C1520E0DFB60023D6DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F1596C1A20E0DFB60023D6DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F1596C1B20E0DFB60023D6DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1596C1D20E0DFB60023D6DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7Y3TV276B8;
+				INFOPLIST_FILE = FTPlayerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anc.FTPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1596C1E20E0DFB60023D6DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7Y3TV276B8;
+				INFOPLIST_FILE = FTPlayerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.anc.FTPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1596C0120E0DFAF0023D6DE /* Build configuration list for PBXProject "FTPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1596C1A20E0DFB60023D6DE /* Debug */,
+				F1596C1B20E0DFB60023D6DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1596C1C20E0DFB60023D6DE /* Build configuration list for PBXNativeTarget "FTPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1596C1D20E0DFB60023D6DE /* Debug */,
+				F1596C1E20E0DFB60023D6DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1596BFE20E0DFAF0023D6DE /* Project object */;
+}
