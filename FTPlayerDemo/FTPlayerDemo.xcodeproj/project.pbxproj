@@ -25,6 +25,7 @@
 		F1596C6F20E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C6220E0E0AE0023D6DE /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		F1596C7020E0E0AE0023D6DE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C6420E0E0AE0023D6DE /* View+MASAdditions.m */; };
 		F1596C7120E0E0AE0023D6DE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1596C6720E0E0AE0023D6DE /* ViewController+MASAdditions.m */; };
+		F19276B220E620AF005C6634 /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F19276B120E620AF005C6634 /* timg.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		F1596C6520E0E0AE0023D6DE /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		F1596C6620E0E0AE0023D6DE /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		F1596C6720E0E0AE0023D6DE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		F19276B120E620AF005C6634 /* timg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				F1596C0A20E0DFAF0023D6DE /* AppDelegate.m */,
 				F1596C0C20E0DFAF0023D6DE /* ViewController.h */,
 				F1596C0D20E0DFAF0023D6DE /* ViewController.m */,
+				F19276B120E620AF005C6634 /* timg.jpeg */,
 				F1596C0F20E0DFAF0023D6DE /* Main.storyboard */,
 				F1596C1220E0DFB60023D6DE /* Assets.xcassets */,
 				F1596C1420E0DFB60023D6DE /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F19276B220E620AF005C6634 /* timg.jpeg in Resources */,
 				F1596C1620E0DFB60023D6DE /* LaunchScreen.storyboard in Resources */,
 				F1596C1320E0DFB60023D6DE /* Assets.xcassets in Resources */,
 				F1596C2320E0E0640023D6DE /* FTPlayer.bundle in Resources */,

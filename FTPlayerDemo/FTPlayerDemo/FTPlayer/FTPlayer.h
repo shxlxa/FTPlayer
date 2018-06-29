@@ -33,6 +33,8 @@
 
 @property (strong, nonatomic) AVPlayer *player;
 
+@property (nonatomic, strong) UIImage  *placehoderImage;
+
 
 - (instancetype)initWithFrame:(CGRect)frame videoUrl:(NSURL *)url;
 
