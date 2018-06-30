@@ -39,12 +39,10 @@
 - (instancetype)initWithFrame:(CGRect)frame videoUrl:(NSURL *)url;
 
 // 暂停播放
-- (void)pausePlayVideo;
+- (void)pauseVideo;
 
 // 开始播放
 - (void)playVideo;
-
-- (void)restartPlay;
 
 
 @property (nonatomic, weak) id<FTPlayerDelegate>delegate;

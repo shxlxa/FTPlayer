@@ -76,6 +76,13 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 
 @property (nonatomic, strong) UITapGestureRecognizer  *doubleTap;
 
+// 隐藏bottomView时显示的播放进度
+@property (nonatomic,strong) UIProgressView *bottomProgress;
+
+// 隐藏bottomView时显示的缓存进度
+@property (nonatomic,strong) UIProgressView *bottomBufferProgress;
+
+
 @end
 
 @implementation FTPlayer
@@ -107,6 +114,12 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     [self addPlayer];
     [self addNotification];
     [self addStatusObserve];
+    [self initParams];
+}
+
+- (void)initParams{
+    self.isPlaying = NO;
+    self.placehoderImage = nil;
 }
 
 - (void)addNotification{
@@ -122,7 +135,6 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     }
     [self.player seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
         if (finished) {
-            NSLog(@"cft-play finished-------");
             [self pauseVideo];
         }
     }];
@@ -130,33 +142,15 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 
 #pragma mark 进入后台
 - (void)appDidEnterBackground:(NSNotification*)note{
-    NSLog(@"cft-进入后台--");
-    if (self.playBtn.isSelected==NO) {//如果是播放中，则继续播放
-        NSArray *tracks = [self.playerItem tracks];
-        for (AVPlayerItemTrack *playerItemTrack in tracks) {
-            if ([playerItemTrack.assetTrack hasMediaCharacteristic:AVMediaCharacteristicVisual]) {
-                playerItemTrack.enabled = YES;
-            }
-        }
-        self.playerLayer.player = nil;
-        [self.player play];
+    if (self.isPlaying == YES) {//如果是播放中，则继续播放
+        [self pauseVideo];
     }
 }
 #pragma mark
 #pragma mark 进入前台
 - (void)appWillEnterForeground:(NSNotification*)note{
-    if (self.playBtn.isSelected==NO) {//如果是播放中，则继续播放
-        NSArray *tracks = [self.playerItem tracks];
-        for (AVPlayerItemTrack *playerItemTrack in tracks) {
-            if ([playerItemTrack.assetTrack hasMediaCharacteristic:AVMediaCharacteristicVisual]) {
-                playerItemTrack.enabled = YES;
-            }
-        }
-        self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-        self.playerLayer.frame = self.contentView.bounds;
-        self.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-        [self.contentView.layer insertSublayer:_playerLayer atIndex:0];
-        [self.player play];
+    if (self.isPlaying == NO) {//如果是播放中，则继续播放
+        [self playVideo];
     }
 }
 
@@ -186,18 +180,23 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
             NSTimeInterval timeInterval = [self availableDuration];
             CMTime duration             = self.playerItem.duration;
             CGFloat totalDuration       = CMTimeGetSeconds(duration);
+            self.loadingProgress.progressTintColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
             [self.loadingProgress setProgress:timeInterval / totalDuration animated:NO];
+            
+            self.bottomBufferProgress.progressTintColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7];
+            [self.bottomBufferProgress setProgress:timeInterval / totalDuration animated:NO];
+            
         }
         else if ([keyPath isEqualToString:kObserveKeyPlaybackBufferEmpty]){//缓存空
             NSLog(@"cft-kObserveKeyPlaybackBufferEmpty---");
             if (self.playerItem.playbackBufferEmpty) {
                 NSLog(@"cft-缓存真的空了---");
-                [self.loadingView startAnimating];
+                [self startLoading];
             }
         }
         else if ([keyPath isEqualToString:kObserveKeyPlaybackLikelyToKeepUp]){// 当缓冲好的时候
             NSLog(@"cft-缓冲好了---");
-            [self.loadingView stopAnimating];
+            [self stopLoading];
         }
         else if ([keyPath isEqualToString:kObserveKeyduration]){//获取到时长
             _totalTime = (CGFloat)CMTimeGetSeconds(_playerItem.duration);
@@ -216,17 +215,18 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         case AVPlayerStatusUnknown:{//刚开始的状态，还没有开始加载数据
             NSLog(@"cft-AVPlayerStatusUnknown");
             self.loadingProgress.progress = 0.0;
-            [self.loadingView startAnimating];
+            [self startLoading];
             break;
         }
         case AVPlayerStatusReadyToPlay:{//准备播放
             NSLog(@"cft-AVPlayerStatusReadyToPlay");
+            [self hiddenControlView];
             [self initTimer];
             break;
         }
         case AVPlayerStatusFailed:{//加载失败
             NSLog(@"cft-AVPlayerStatusFailed");
-            [self.loadingView stopAnimating];
+            [self stopLoading];
             break;
         }
             
@@ -258,7 +258,10 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     self.totalTimeLabel.text = [self convertTimeWithSecond:(int)(_totalTime+0.5)];
     if (_isSliderDragging == NO) {
         CGFloat value = nowTime / _totalTime;
+        
+        //[self.bottomProgress setProgress:value animated:YES];
         [self.progressSlider setValue:value];
+        [self.bottomProgress setProgress:value animated:YES];
     }
 }
 
@@ -285,6 +288,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     [self.contentView addSubview:self.topView];
     [self.contentView addSubview:self.loadingView];
     [self.contentView addSubview:self.playBtn];
+ 
     
     [self.bottomView addSubview:self.currentTimeLabel];
     [self.bottomView addSubview:self.totalTimeLabel];
@@ -292,6 +296,9 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     [self.bottomView addSubview:self.fullScreenBtn];
     [self.bottomView addSubview:self.progressSlider];
     [self.bottomView addSubview:self.loadingProgress];
+    [self.contentView addSubview:self.bottomProgress];
+    [self.contentView addSubview:self.bottomBufferProgress];
+    
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.contentView);
         make.height.mas_equalTo(70);
@@ -301,7 +308,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         make.height.mas_equalTo(40);
     }];
     
-    [self.loadingView startAnimating];
+    [self startLoading];
     [self.loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.contentView);
     }];
@@ -310,6 +317,18 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         make.center.equalTo(self.contentView);
         make.width.height.mas_equalTo(60);
     }];
+    
+    [self.bottomProgress mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView).offset(-2);
+    }];
+    
+    [self.contentView sendSubviewToBack:self.bottomBufferProgress];
+    [self.bottomBufferProgress mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.contentView);
+    }];
+    
+    
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomView).offset(2);
         make.centerY.equalTo(self.bottomView);
@@ -369,6 +388,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 
 - (void)playVideo{
     if (!self.playBtn.selected) {
+        [self reBuildTimer];
         self.playBtn.selected = YES;
         [self.player play];
         self.isPlaying = YES;
@@ -378,7 +398,6 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 #pragma mark - ---------------------------------- event handle -----------------------------------
 
 - (void)playBtnAction:(UIButton *)btn{
-    //btn.selected = !btn.selected;
     if (btn.selected) {
         [self pauseVideo];
     }else{
@@ -392,6 +411,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 }
 
 - (void)sliderValueChanged:(UISlider *)slider{
+    [self reBuildTimer];
     _isSliderDragging = YES;
 }
 
@@ -408,7 +428,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     
     CGFloat value = _totalTime * (touchLocation.x/self.progressSlider.frame.size.width);
     [self.progressSlider setValue:value/_totalTime animated:YES];
-   
+    [self.bottomProgress setProgress:value/_totalTime animated:YES];
     [self.player seekToTime:CMTimeMakeWithSeconds(self.progressSlider.value*_totalTime, self.playerItem.currentTime.timescale)];
 }
 
@@ -429,6 +449,17 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 }
 
 #pragma mark - Helper Method
+
+- (void)startLoading{
+    [self.loadingView startAnimating];
+    self.playBtn.hidden = YES;
+}
+
+- (void)stopLoading{
+    [self.loadingView stopAnimating];
+    self.playBtn.hidden = NO;
+}
+
 /**
  *  计算缓冲进度
  *
@@ -459,6 +490,9 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         self.bottomView.alpha = 1.0;
         self.topView.alpha = 1.0;
         self.playBtn.alpha = 1.0;
+        
+        self.bottomProgress.alpha = 0.0;
+        self.bottomBufferProgress.alpha = 0.0;
     } completion:^(BOOL finish){
         
     }];
@@ -469,7 +503,9 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         self.bottomView.alpha = 0.0;
         self.topView.alpha = 0.0;
         self.playBtn.alpha = 0.0;
-        
+       
+        self.bottomProgress.alpha = 0.0;
+        self.bottomBufferProgress.alpha = 0.0;
     } completion:^(BOOL finish){
         
     }];
@@ -497,6 +533,9 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     _placehoderImage = placehoderImage;
     if (placehoderImage) {
         self.contentView.layer.contents = (id)_placehoderImage.CGImage;
+    }else{
+        UIImage *image = [UIImage imageNamed:@"ImagePlacehoder"];
+        self.contentView.layer.contents = (id)image;
     }
 }
 
@@ -585,8 +624,10 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 
 - (UIProgressView *)loadingProgress{
     if (!_loadingProgress) {
-        _loadingProgress = [[UIProgressView alloc] init];
-        _loadingProgress.progressTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7];
+        _loadingProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        // progressTintColor 填充部分的颜色,已经缓冲过的进度的颜色
+        _loadingProgress.progressTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+        // trackTintColor 未填充部分的颜色
         _loadingProgress.trackTintColor = [UIColor clearColor];
         [_loadingProgress setProgress:0.0];
     }
@@ -642,6 +683,29 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     }
     return _doubleTap;
 }
+
+- (UIProgressView *)bottomProgress{
+    if (!_bottomProgress) {
+        _bottomProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        _bottomProgress.progressTintColor = [UIColor greenColor];
+        _bottomProgress.trackTintColor    = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
+        [_bottomProgress setProgress:0.0 animated:NO];
+        _bottomProgress.alpha = 0.0;
+    }
+    return _bottomProgress;
+}
+
+- (UIProgressView *)bottomBufferProgress{
+    if (!_bottomBufferProgress) {
+        _bottomBufferProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        _bottomBufferProgress.progressTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+        _bottomBufferProgress.trackTintColor    = [UIColor clearColor];
+        [_bottomBufferProgress setProgress:0.0 animated:NO];
+        _bottomBufferProgress.alpha = 0.0;
+    }
+    return _bottomBufferProgress;
+}
+
 
 
 @end
